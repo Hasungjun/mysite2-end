@@ -61,13 +61,13 @@
 				<!-- pager 추가 -->
 				<div class="pager">
 					<ul>
-						<li><a href="${pageContext.servletContext.contextPath }/board?pg=${pg-1 }">◀</a></li>
+						<li><a href="${pageContext.servletContext.contextPath }/board?a=search&kwd=${search }&pg=${pg-1 }">◀</a></li>
 						
 						<c:forEach begin="${startPage }" end="${endPage }" var="i">
-   							<li <c:if test="${pg eq i }"> class = 'selected' </c:if>><a href="${pageContext.servletContext.contextPath }/board?pg=${i }">${i }</a></li> 	
+   							<li <c:if test="${pg eq i }"> class = 'selected' </c:if>><a href="${pageContext.servletContext.contextPath }/board?a=search&kwd=${search }&pg=${i }">${i }</a></li> 	
 						</c:forEach>
 						
-						<li><a href="${pageContext.servletContext.contextPath }/board?pg=${pg+1 }">▶</a></li>
+						<li><a href="${pageContext.servletContext.contextPath }/board?a=search&kwd=${search }&pg=${pg+1 }">▶</a></li>
 					</ul>
 				</div>					
 				<!-- pager 추가 -->

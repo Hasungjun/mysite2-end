@@ -36,7 +36,11 @@
 					
 					
 					<input type="submit" value="수정하기">
-					
+					<c:if test="${result eq 'fail'}">
+						<p>
+							빈곳이 있습니다.
+						</p>
+					</c:if>
 				</form>
 			</div>
 		</div>

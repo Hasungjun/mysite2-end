@@ -16,12 +16,13 @@
 		<div id="content">
 			<div id="board">
 				<form class="board-form" method="post" action="${pageContext.servletContext.contextPath }/board">
-					<input type = "hidden" name = "a" value="write">
-					 <input type='hidden' name="no" value='${authuser.no }'>
-					 <input type='hidden' name="name" value='${authuser.name }'>
+					<input type = "hidden" name = "a" value="replyaction">
+					 <input type='hidden' name="no" value='${no }'>
+					 <input type='hidden' name="user_no" value='${authuser.no }'>
+					 <input type='hidden' name="user_name" value='${authuser.name }'>
 					<table class="tbl-ex">
 						<tr>
-							<th colspan="2">글쓰기</th>
+							<th colspan="2">답글쓰기</th>
 						</tr>
 						<tr>
 							<td class="label">제목</td>

@@ -11,7 +11,7 @@ public class UserDao {
 	
 	public UserVo get(String email, String password) {
 		UserVo result = null;
-		
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -24,8 +24,9 @@ public class UserDao {
 				"   from user" + 
 				"  where email=?" +
 				"    and password=?";
-			pstmt = conn.prepareStatement(sql);
 
+			if(password!=null&&email!=null) {
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setString(2, password);
 
@@ -38,6 +39,7 @@ public class UserDao {
 				result.setNo(no);
 				result.setName(name);
 			}
+		}
 		} catch (SQLException e) {
 			System.out.println("error :" + e);
 		} finally {
@@ -105,6 +107,7 @@ public class UserDao {
 			conn = getConnection();
 			
 			String sql = "UPDATE user SET password = ? ,name = ?, gender = ?  WHERE no= ?";
+			
 			pstmt = conn.prepareStatement(sql);
 
 			
@@ -116,7 +119,7 @@ public class UserDao {
 			int count = pstmt.executeUpdate();
 			
 			result = count == 1;
-			
+
 		} catch (SQLException e) {
 			System.out.println("erorr:" + e);
 		} finally {

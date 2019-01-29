@@ -9,4 +9,46 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+ <!-- Context Parameter(애플리케이션 전역 파라미터) 정의 -->
+ <context-param>
+ <param-name>contextConfigLocation</param-name>
+ <param-value>/WEB-INF/applicationContext.xml</param-value>
+ </context-param>
+ 
+ 
+ <!-- 서블릿 정의 -->
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>com.douzon.mysite.controller.MainServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/config.xml</param-value>
+    </init-param>
+  </servlet>
+  <!-- 리스너 정의-->
+  <listener>
+    <listener-class>com.douzon.mysite.listener.ContextLoaderListener</listener-class>
+  </listener>
+  <!--  필터 정의 -->
+  <filter>
+  <filter-name>EncodingFilter</filter-name>
+  <filter-class>com.douzon.mvc.filter.EncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  
+  <!-- 필터 요청url 매핑 -->
+  <filter-mapping>
+  <filter-name>EncodingFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <!-- 서블릿 url매핑 -->
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
 </web-app>

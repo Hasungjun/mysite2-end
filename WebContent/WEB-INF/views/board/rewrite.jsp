@@ -16,12 +16,13 @@
 		<div id="content">
 			<div id="board">
 				<form class="board-form" method="post" action="${pageContext.servletContext.contextPath }/board">
-					<input type = "hidden" name = "a" value="write">
-					 <input type='hidden' name="no" value='${authuser.no }'>
+					<input type = "hidden" name = "a" value="rewriteaction">
+					 <input type='hidden' name="user_no" value='${authuser.no }'>
 					 <input type='hidden' name="name" value='${authuser.name }'>
+					 <input type='hidden' name="no" value='${no }'>
 					<table class="tbl-ex">
 						<tr>
-							<th colspan="2">글쓰기</th>
+							<th colspan="2">수정하기</th>
 						</tr>
 						<tr>
 							<td class="label">제목</td>
@@ -35,8 +36,8 @@
 						</tr>
 					</table>
 					<div class="bottom">
-						<a href="/board">취소</a>
-						<input type="submit" value="등록">
+						<a href="${pageContext.servletContext.contextPath }/board">취소</a>
+						<input type="submit" value="수정하기">
 					</div>
 				</form>				
 			</div>

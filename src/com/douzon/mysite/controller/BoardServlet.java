@@ -9,27 +9,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.douzon.mvc.action.AbstractActionFactory;
 import com.douzon.mvc.action.Action;
-import com.douzon.mysite.guesbook.GuestbookActionFactory;
+import com.douzon.mysite.board.BoardActionFactory;
 
-@WebServlet("/guestbook")
 
-public class GuestbookServlet extends HttpServlet {
+@WebServlet("/board")
+public class BoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static long no;
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String actionName = request.getParameter("a");
-
-		AbstractActionFactory af = new GuestbookActionFactory();
+		
+		AbstractActionFactory af = new BoardActionFactory();
 		Action action = af.getAction(actionName);
 		action.execute(request,response);
 	}
 
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
 

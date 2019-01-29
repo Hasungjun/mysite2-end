@@ -20,17 +20,21 @@ public class ModifyAction implements Action {
 		String gender = request.getParameter("gender");
 		long no = Long.parseLong(request.getParameter("no")); 
 		
-		
+		if(!name.equals("")) {
 		UserVo vo = new UserVo();
 		vo.setName(name);
 		vo.setPassword(password);
 		vo.setGender(gender);
 		vo.setNo(no);
 		
-		
 		new UserDao().update(vo);
-		
 		WebUtils.redirect(request, response, request.getContextPath()+"/user?a=modifysuccess");
+		}else {
+			request.setAttribute("result", "fail");
+			WebUtils.forward(request, response, "/WEB-INF/views/user/modifyform.jsp");
+			return;
+		}
+		
 		
 	}
 

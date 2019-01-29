@@ -10,8 +10,6 @@ import com.douzon.mvc.action.Action;
 import com.douzon.mvc.util.WebUtils;
 import com.douzon.mysite.vo.GuestbookDao;
 import com.douzon.mysite.vo.GuestbookVo;
-import com.douzon.mysite.vo.UserDao;
-import com.douzon.mysite.vo.UserVo;
 
 public class AddFormAction implements Action {
 
